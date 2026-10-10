@@ -103,3 +103,6 @@ The project aims to develop a healthcare database application with cross-layer p
 ---
 
 *Academic project — OSDBMS, Phase II, 2026.*
+## Project Status
+
+Currently under development. Healthcare features and initial database query analysis are implemented, while operating-system monitoring and machine-learning-based performance prediction are planned for future work.
