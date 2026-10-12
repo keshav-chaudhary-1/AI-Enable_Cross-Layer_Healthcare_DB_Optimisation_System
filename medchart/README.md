@@ -231,6 +231,9 @@ Reports API (all routes require the `Authorization: Bearer <token>` header):
 | POST   | `/api/reports`                    | patient | upload a report to a confirmed appointment |
 | GET    | `/api/reports/:reportId/document` | any     | authorized document download              |
 
+Make backend errors clearer for invalid input, missing records, and failed requests instead of showing generic errors.
+Files: server/src/middleware/errorHandler.js, API controllers
+Commit name: Improve API error handling
 ## How session persistence works
 
 - On signup/login, the backend signs a JWT (`server/src/utils/jwt.js`)
