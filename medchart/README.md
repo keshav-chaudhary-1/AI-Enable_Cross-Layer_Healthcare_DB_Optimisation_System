@@ -1,4 +1,4 @@
-# MedChart — Phase 1
+# MedChart
 
 Frontend + backend scaffold: a Get Started page with login/signup, routing
 signed-in users to a Patient profile or a Doctor profile based on the role
