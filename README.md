@@ -1,6 +1,6 @@
 # AI-Enabled Cross-Layer Healthcare Database Optimization System
 
-An intelligent healthcare database optimization project focused on analyzing SQL query performance across the application and database layers, with planned integration of operating-system metrics and machine learning.
+An intelligent healthcare database optimization project focused on analyzing SQL query performance across the application and database layers, with planned integration of operating-system metrics and machine learning project
 
 ## Overview
 Healthcare applications handle patient records, doctor information, appointments, and clinical reports. As databases grow, inefficient SQL queries and unsuitable indexes can affect application performance.
