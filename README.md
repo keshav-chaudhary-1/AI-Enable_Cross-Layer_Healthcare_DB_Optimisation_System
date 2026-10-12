@@ -73,7 +73,7 @@ Note: PostgreSQL's built-in cost-based optimizer remains responsible for query e
 * Query Correctness: Rewritten queries must preserve the results of their original queries.
 * Machine Learning Reliability: A useful prediction model requires representative execution samples across query types and system conditions.
 
-The central research goal is to determine whether incorporating operating-system metrics alongside query and database information improves query-performance prediction accuracy.
+The central research goal is to determine whether incorporating operating-system metrics alongside query and database information improves query-performance predictions accuracy.
 
 ## Expected Outcome
 The project aims to develop a healthcare database application with cross-layer performance analysis and intelligent optimization support. Its final evaluation will compare prediction accuracy across different combinations of query, DBMS, and operating-system features.
