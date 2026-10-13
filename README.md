@@ -59,7 +59,7 @@ Note: PostgreSQL's built-in cost-based optimizer remains responsible for query e
 * Initial developer dashboard for query-analysis and optimization recommendations.
 
 ### Planned Development
-* CPU, memory, disk I/O, and system-load monitoring.
+* CPU, memory, disk I/O, and system load monitoring.
 * Representative healthcare SQL workloads of different complexity levels.
 * Collection of actual execution measurements using EXPLAIN ANALYZE in a controlled test environment.
 * Creation of a combined query, DBMS, and operating-system dataset.
