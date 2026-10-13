@@ -46,7 +46,7 @@ The current query-analysis workflow focuses on:
 4. Recommending candidate query rewrites or indexes.
 5. Allowing developers to review recommendations before applying changes.
 
-Note: PostgreSQL's built-in cost-based optimizer remains responsible for query execution. Automatic query rewriting is disabled by default, and recommendations require further validation and performance evaluation.
+Note: PostgreSQL's built-in cost-based optimizer remains responsible for query execution. automatic query rewriting is disabled by default, and recommendations require further validation and performance evaluation.
 
 ## Project Status
 
