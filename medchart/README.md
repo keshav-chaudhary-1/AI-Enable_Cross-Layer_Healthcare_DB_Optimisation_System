@@ -100,6 +100,17 @@ The developer console now separates three DBMS layers:
 `ENABLE_ACTIVE_QUERY_REWRITE=false` is the safe default. Set it to `true` only in a development/demo environment when you want a candidate with a lower estimated cost to be used for that SELECT execution. The rewrite allow-list currently covers explicit projections for the `patient`, `doctor`, and `department` tables; it does not accept SQL from the browser and it never rewrites writes or locking reads.
 
 Query parameter values are retained only in backend memory for the lifetime of the query log and are not returned to the developer dashboard. This prevents passwords and report-related values from appearing in the observability UI.
+
+### Predictive query latency model
+
+The developer optimizer includes a dependency-free online log-linear regression model in `server/src/utils/queryModel.js`. It learns from real SELECT executions using SQL and PostgreSQL plan features, persists only model weights and error statistics under `.data/`, and predicts latency for the original query and safe rewrite candidates. The dashboard reports observations, mean absolute error, the last prediction, and the feature set used. It needs 20 observations before it is allowed to select a rewrite and requires at least a 10% predicted improvement. The safe defaults are:
+
+```text
+ENABLE_AI_QUERY_OPTIMIZER=false
+ENABLE_ACTIVE_QUERY_REWRITE=false
+```
+
+The model is therefore visible in the developer dashboard while it learns, but it cannot change query execution until both flags are deliberately enabled in a development environment. This is a latency predictor and candidate ranker, not a general-purpose AI system and not a replacement for PostgreSQL's planner.
 ```
 
 The developer dashboard displays live parameterized SQL templates from the
