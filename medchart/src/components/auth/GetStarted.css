@@ -1,0 +1,11 @@
+.mc-landing {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  min-height: 100vh;
+}
+
+@media (max-width: 860px) {
+  .mc-landing {
+    grid-template-columns: 1fr;
+  }
+}

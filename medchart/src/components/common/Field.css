@@ -1,0 +1,25 @@
+.mc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--mc-ink-soft);
+}
+
+.mc-field input,
+.mc-field select {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--mc-ink);
+  padding: 10px 12px;
+  border: 1px solid var(--mc-line);
+  border-radius: 3px;
+  background: #fbfcfb;
+  outline: none;
+}
+
+.mc-field input:focus,
+.mc-field select:focus {
+  border-color: var(--mc-teal);
+  box-shadow: 0 0 0 3px rgba(47, 110, 99, 0.14);
+}

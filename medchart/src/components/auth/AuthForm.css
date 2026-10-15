@@ -1,0 +1,93 @@
+.mc-panel {
+  background: var(--mc-surface);
+  padding: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mc-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--mc-line);
+  margin-bottom: 28px;
+}
+
+.mc-tab {
+  background: none;
+  border: none;
+  font-size: 14.5px;
+  color: var(--mc-ink-soft);
+  padding: 10px 4px 12px;
+  margin-right: 22px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transform: translateY(1px);
+}
+
+.mc-tab.is-active {
+  color: var(--mc-ink);
+  border-bottom-color: var(--mc-red);
+  font-weight: 600;
+}
+
+.mc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.mc-error {
+  font-size: 13.5px;
+  color: var(--mc-red);
+  margin: 0;
+}
+
+.mc-submit {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fdfdfb;
+  background: var(--mc-teal-deep);
+  border: none;
+  border-radius: 3px;
+  padding: 12px 16px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.mc-submit:hover {
+  background: var(--mc-teal);
+}
+
+.mc-switch {
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: var(--mc-ink-soft);
+  text-align: center;
+}
+
+.mc-switch button {
+  background: none;
+  border: none;
+  color: var(--mc-teal-deep);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+}
+
+@media (max-width: 860px) {
+  .mc-panel {
+    padding: 40px 28px;
+    max-width: none;
+  }
+}

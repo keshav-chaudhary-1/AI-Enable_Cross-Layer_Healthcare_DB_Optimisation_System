@@ -1,0 +1,147 @@
+.mc-report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mc-report-help {
+  color: var(--mc-ink-soft);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.mc-report-list,
+.mc-patient-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mc-report-line,
+.mc-patient-block {
+  border-top: 1px solid var(--mc-line);
+  padding: 12px 0;
+}
+
+.mc-report-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.mc-report-line > div,
+.mc-patient-heading > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mc-report-line strong,
+.mc-patient-heading strong {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mc-report-line span,
+.mc-patient-heading span {
+  color: var(--mc-ink-soft);
+  font-size: 12px;
+}
+
+.mc-report-line small {
+  color: var(--mc-ink-soft);
+  font-size: 12.5px;
+}
+
+.mc-report-open {
+  flex-shrink: 0;
+  font-size: 12px;
+  background: none;
+  border: 1px solid var(--mc-teal);
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: var(--mc-teal-deep);
+  cursor: pointer;
+}
+
+.mc-patient-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.mc-patient-block .mc-report-line {
+  margin-left: 12px;
+}
+
+.mc-report-viewer {
+  background: var(--mc-surface);
+  border-radius: 5px;
+  width: min(900px, 96vw);
+  height: min(760px, 90vh);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mc-report-viewer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mc-report-viewer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mc-report-frame,
+.mc-report-image {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--mc-line);
+  background: #f4f6f5;
+}
+
+.mc-report-image {
+  object-fit: contain;
+}
+
+.mc-treatment {
+  flex-shrink: 0;
+  color: var(--mc-teal-deep);
+  background: #eaf2ef;
+  border-radius: 20px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.mc-treatment-not_started {
+  color: #8a6a12;
+  background: #fbf1d8;
+}
+
+@media (max-width: 620px) {
+  .mc-report-header,
+  .mc-patient-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .mc-patient-block .mc-report-line {
+    margin-left: 0;
+  }
+}

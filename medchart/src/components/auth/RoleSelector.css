@@ -1,0 +1,35 @@
+.mc-role {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mc-role legend {
+  font-size: 13px;
+  color: var(--mc-ink-soft);
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.mc-role-options {
+  display: flex;
+  gap: 10px;
+}
+
+.mc-badge {
+  flex: 1;
+  font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--mc-line);
+  border-radius: 3px;
+  background: #fbfcfb;
+  color: var(--mc-ink-soft);
+  cursor: pointer;
+}
+
+.mc-badge.is-active {
+  border-color: var(--mc-teal);
+  color: var(--mc-teal-deep);
+  background: #eaf2ef;
+  font-weight: 600;
+}

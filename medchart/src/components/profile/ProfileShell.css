@@ -1,0 +1,61 @@
+.mc-profile {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+.mc-pheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--mc-line);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.mc-pheader-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mc-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--mc-teal-deep);
+  color: #f2efe8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mc-font-display);
+  font-size: 18px;
+}
+
+.mc-pheader h1 {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.mc-pid {
+  margin: 4px 0 0;
+  font-family: var(--mc-font-mono);
+  font-size: 12.5px;
+  color: var(--mc-ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.mc-logout {
+  font-size: 13.5px;
+  background: none;
+  border: 1px solid var(--mc-line);
+  border-radius: 3px;
+  padding: 8px 14px;
+  color: var(--mc-ink-soft);
+  cursor: pointer;
+}
+
+.mc-logout:hover {
+  border-color: var(--mc-ink-soft);
+  color: var(--mc-ink);
+}

@@ -1,0 +1,24 @@
+.mc-pulse-svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+  opacity: 0.9;
+}
+
+.mc-pulse-path {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: mc-draw 3.2s ease-in-out infinite;
+}
+
+@keyframes mc-draw {
+  0% {
+    stroke-dashoffset: 900;
+  }
+  45% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -20;
+  }
+}

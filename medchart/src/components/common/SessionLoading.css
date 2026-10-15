@@ -1,0 +1,30 @@
+.mc-session-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--mc-ink-soft);
+  font-size: 14px;
+}
+
+.mc-session-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--mc-teal);
+  animation: mc-session-blink 1.1s ease-in-out infinite;
+}
+
+@keyframes mc-session-blink {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,14 @@
+:root {
+  --mc-bg: #eef3f1;
+  --mc-surface: #ffffff;
+  --mc-ink: #182634;
+  --mc-ink-soft: #57697a;
+  --mc-teal: #2f6e63;
+  --mc-teal-deep: #1f4e46;
+  --mc-red: #c4595a;
+  --mc-line: #d7e0dc;
+
+  --mc-font-body: "IBM Plex Sans", "Work Sans", -apple-system, sans-serif;
+  --mc-font-display: "Source Serif 4", Georgia, "Iowan Old Style", serif;
+  --mc-font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}

@@ -1,0 +1,29 @@
+@import "./variables.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: var(--mc-font-body);
+  color: var(--mc-ink);
+  background: var(--mc-bg);
+}
+
+h1,
+h2 {
+  font-family: var(--mc-font-display);
+  margin: 0;
+  color: var(--mc-ink);
+}
+
+button {
+  font-family: inherit;
+}
