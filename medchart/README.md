@@ -81,6 +81,14 @@ Open the printed local URL (usually `http://localhost:5173`). Sign up as a
 patient or doctor — this inserts a new row into `patient` or `doctor` in
 `healthcare_db`, and logging in re-checks it against the database.
 
+##  User profile dashboard 
+1. use your credentials for login as patients/doctor.
+2. if there is not any previous account than create the new account.
+3. then login into your profile .
+4. Example credentials for patient:-
+    Username: k8194095@gmail.com
+    Password: Keshav@123K
+
 ## Developer query console
 
 Use the local developer account to open the DBMS observability dashboard:
