@@ -57,6 +57,8 @@ Note: PostgreSQL's built-in cost-based optimizer remains responsible for query e
 * PostgreSQL query execution-time and returned-row tracking.
 * Execution-plan analysis.
 * Initial developer dashboard for query-analysis and optimization recommendations.
+* OS Monitoring is also implemented and DBMS query console implemeted.
+* OS Lab is also implemented where we can study and run the Experiment on the application to fetch the os level information.
 
 ### Planned Development
 * CPU, memory, disk I/O, and system load monitoring.
