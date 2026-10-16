@@ -30,11 +30,11 @@ The developer-only **Performance & OS Lab** is an executable extension of MedCha
 
 ```bash
 cd medchart
-npm install
+npm install #if you already install npm not need to intall the environment ever time.
 npm run build
 
-cd server
-npm install
+cd server 
+npm install #if you already install npm not need to intall the environment ever time.
 npm run dev
 ```
 
