@@ -7,6 +7,7 @@ import { reportRouter } from "./routes/report.routes.js";
 import { developerRouter } from "./routes/developer.routes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { runWithQueryContext } from "./utils/queryLogger.js";
+import { performanceLabRouter } from "./routes/performanceLab.routes.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/appointments", appointmentRouter);
 app.use("/api/reports", reportRouter);
 app.use("/api/developer", developerRouter);
+app.use("/api/performance-lab", performanceLabRouter);
 
 app.use(errorHandler);
 
