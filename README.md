@@ -78,6 +78,7 @@ Note: PostgreSQL's built-in cost-based optimizer remains responsible for query e
 * Query Correctness: Rewritten queries must preserve the results of their original queries.
 * Machine Learning Reliability: A useful prediction model requires representative execution samples across query types and system conditions.
 * Correlating operating-system resource usage with database query performance is challenging because CPU load, memory pressure, and disk I/O can vary during query execution.
+* Changing query patterns and workloads can reduce optimization accuracy and affect database performance.
 
 The central research goal is to determine whether incorporating operating-system metrics alongside query and database information improves query-performance predictions accuracy.
 
