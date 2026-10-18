@@ -80,7 +80,7 @@ Note: PostgreSQL's built-in cost-based optimizer remains responsible for query e
 The central research goal is to determine whether incorporating operating-system metrics alongside query and database information improves query-performance predictions accuracy.
 
 ## Expected Outcome
-The project aims to develop a healthcare database application with cross-layer performance analysis and intelligent optimization support. Its final evaluation will compare prediction accuracy across different combinations of query, DBMS, and operating-system features.
+The project aims to develop a healthcare database application with cross-layer performance analysis and intelligent optimization support. Its final evaluation will compare prediction accuracy across different combinations of query, DBMS, and operating system features.
 
 ## Team MedOptix
 * Keshav Chaudhary - Team Lead
