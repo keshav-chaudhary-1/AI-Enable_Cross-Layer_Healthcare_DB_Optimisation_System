@@ -29,7 +29,7 @@ The system integrates AI-driven query optimization and cross-layer performance m
 | Database | PostgreSQL |
 | Authentication | JSON Web Tokens (JWT) |
 | Query Analysis | PostgreSQL execution plans and performance tracking |
-| Planned Enhancement | Operating-system monitoring and machine learning |
+| Planned Enhancement | Operating-system monitoring & machine learning |
 
 ## System Architecture
 The system follows a layered architecture:
