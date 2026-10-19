@@ -18,7 +18,7 @@ The system integrates AI-driven query optimization and cross-layer performance m
 * Query Performance Tracking: Recording query execution time and returned row counts.
 * Execution Plan Analysis: Analyzing PostgreSQL EXPLAIN JSON plans, including estimated costs, estimated rows, and scan methods.
 * Optimization Recommendations: Identifying potential query bottlenecks and suggesting query rewrites or indexes for developer review.
-* Developer Dashboard: Presenting query-analysis information and optimization recommendation with OS Monitoring.
+* Developer Dashboard: Presenting query-analysis information & optimization recommendation with OS Monitoring.
 
 ## Technology Stack
 
