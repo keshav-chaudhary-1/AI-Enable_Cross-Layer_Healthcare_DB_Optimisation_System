@@ -1,16 +1,19 @@
 .mc-profile {
-  max-width: 920px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 48px 32px 80px;
+  padding: clamp(28px, 5vw, 56px) 28px 80px;
 }
 
 .mc-pheader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--mc-line);
-  padding-bottom: 24px;
-  margin-bottom: 32px;
+  padding: 18px 20px;
+  border: 1px solid var(--mc-line);
+  border-radius: var(--mc-radius-md);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--mc-shadow-sm);
+  margin-bottom: 24px;
 }
 
 .mc-pheader-left {
@@ -23,13 +26,14 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--mc-teal-deep);
+  background: linear-gradient(145deg, var(--mc-teal), var(--mc-teal-deep));
   color: #f2efe8;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--mc-font-display);
   font-size: 18px;
+  box-shadow: 0 4px 10px rgba(31, 78, 70, 0.16);
 }
 
 .mc-pheader h1 {
@@ -49,13 +53,15 @@
   font-size: 13.5px;
   background: none;
   border: 1px solid var(--mc-line);
-  border-radius: 3px;
+  border-radius: var(--mc-radius-sm);
   padding: 8px 14px;
   color: var(--mc-ink-soft);
   cursor: pointer;
+  transition: border-color .18s ease, color .18s ease, background .18s ease;
 }
 
 .mc-logout:hover {
   border-color: var(--mc-ink-soft);
   color: var(--mc-ink);
+  background: #f6faf8;
 }

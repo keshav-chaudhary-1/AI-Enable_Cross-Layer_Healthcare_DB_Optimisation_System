@@ -15,13 +15,16 @@
   color: #fdfdfb;
   background: var(--mc-teal-deep);
   border: none;
-  border-radius: 3px;
+  border-radius: var(--mc-radius-sm);
   padding: 8px 14px;
   cursor: pointer;
+  box-shadow: var(--mc-shadow-sm);
+  transition: transform .18s ease, background .18s ease;
 }
 
 .mc-book-btn:hover {
   background: var(--mc-teal);
+  transform: translateY(-1px);
 }
 
 .mc-appt-list {
@@ -34,7 +37,7 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
-  padding: 12px 0;
+  padding: 15px 0;
   border-top: 1px solid var(--mc-line);
 }
 
@@ -124,7 +127,7 @@
   font-size: 12px;
   background: none;
   border: 1px solid var(--mc-line);
-  border-radius: 3px;
+  border-radius: var(--mc-radius-sm);
   padding: 5px 9px;
   color: var(--mc-ink-soft);
   cursor: pointer;

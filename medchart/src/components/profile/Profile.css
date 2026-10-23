@@ -7,9 +7,16 @@
 .mc-card {
   background: var(--mc-surface);
   border: 1px solid var(--mc-line);
-  border-radius: 4px;
-  padding: 20px 22px;
+  border-radius: var(--mc-radius-md);
+  padding: 22px;
+  box-shadow: var(--mc-shadow-sm);
+  transition: transform .18s ease, box-shadow .18s ease;
   grid-column: span 1;
+}
+
+.mc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mc-shadow-md);
 }
 
 .mc-card:first-child {

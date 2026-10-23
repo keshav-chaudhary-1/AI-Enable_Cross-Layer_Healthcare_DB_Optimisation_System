@@ -14,7 +14,8 @@ body {
   margin: 0;
   font-family: var(--mc-font-body);
   color: var(--mc-ink);
-  background: var(--mc-bg);
+  background: radial-gradient(circle at 8% 0%, #f9fcfb 0, transparent 34rem), var(--mc-bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -26,4 +27,17 @@ h2 {
 
 button {
   font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(47, 110, 99, 0.22);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }

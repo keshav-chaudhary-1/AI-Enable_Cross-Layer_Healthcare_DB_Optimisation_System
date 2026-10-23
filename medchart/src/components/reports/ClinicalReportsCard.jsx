@@ -121,7 +121,11 @@ function DoctorReports({ currentPatients, reports, onOpen, loading, error }) {
       ) : (
         <div className="mc-patient-list">
           {currentPatients.map((patient) => {
-            const patientReports = reports.filter((report) => report.patient?.id === patient.id);
+            // Reports belong to an appointment, not just to the patient. A patient
+            // may have multiple active appointments with the same doctor, so
+            // filtering only by patient ID makes one report appear under every
+            // appointment row.
+            const patientReports = reports.filter((report) => report.appointmentId === patient.appointmentId);
             return (
               <div className="mc-patient-block" key={`${patient.id}-${patient.appointmentId}`}>
                 <div className="mc-patient-heading">
