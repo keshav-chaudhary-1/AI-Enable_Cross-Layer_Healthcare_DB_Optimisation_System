@@ -9,7 +9,7 @@ The AI-Enabled Cross-Layer Healthcare Database Optimization System aims to analy
 
 The project uses MedChart, a healthcare web application, as its working environment. The current implementation includes healthcare management features, PostgreSQL query-performance tracking, execution-plan analysis, and a developer dashboard for optimization recommendations.
 
-The system combines AI-based query optimization with system-level performance monitoring to improve database efficiency, scalability, and reliability in healthcare applications
+The system combines AI-based query optimization with system-level performance monitoring to improve database efficiency, scalability, and reliability in healthcare applications.The system helps developers identify performance issues early
 
 ## Key Features
 * Patient and Doctor Authentication: Registration and login using JSON Web Tokens (JWT).
