@@ -85,7 +85,7 @@ The central research goal is to determine whether incorporating operating-system
 ## Expected Outcome
 The project aims to develop a healthcare database application with cross-layer performance analysis and intelligent optimization support. Its final evaluation will compare prediction accuracy across different combinations of query, DBMS, and operating system features. Its main functin is to determine can OS level features contibute in query optimization.
 ## Team MedOptix
-* Keshav Chaudhary - Team Lead
+* Keshav Chaudhary -Team Lead
 * Atul Rawat
 * Mayank Rawat
 * Piyush Chauhan
