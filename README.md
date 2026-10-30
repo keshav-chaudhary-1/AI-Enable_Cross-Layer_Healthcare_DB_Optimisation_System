@@ -26,7 +26,7 @@ The system combines AI-based query optimization with system-level performance mo
 | :--- | :--- |
 | Frontend | React, Vite |
 | Backend | Node.js, Express |
-| Database | PostgreSQL |
+| Database | PostgreSQL|
 | Authentication | JSON Web Tokens (JWT) |
 | Query Analysis | PostgreSQL execution plans and performance tracking |
 | Planned Enhancement | Operating-system monitoring & machine learning |
