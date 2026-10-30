@@ -91,4 +91,4 @@ The project aims to develop a healthcare database application with cross-layer p
 * Piyush Chauhan
 
 Academic project - OSDBMS, Phase II, 2026.  
-Project Status: Currently under development.
+Project Status: Currently under development..
