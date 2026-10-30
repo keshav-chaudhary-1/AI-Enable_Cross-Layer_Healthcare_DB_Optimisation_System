@@ -5,7 +5,7 @@ An intelligent healthcare database optimization project focused on analyzing SQL
 ## Overview
 Healthcare applications handle patient records, doctor information, appointment id , appointment time,& clinical reports. As databases grow, inefficient SQL queries and unsuitable indexes can affect application performance.
 
-The AI-Enabled Cross-Layer Healthcare Database Optimization System aims to analyze query execution behavior, identify potential performance bottlenecks, and recommend query rewrites and indexes for developer review.
+The AI-Enabled Cross-Layer Healthcare Database Optimization System aims to analyze query execution behavior, identify potential performance bottlenecks,and recommend query rewrites and indexes for developer review.
 
 The project uses MedChart, a healthcare web application, as its working environment. The current implementation includes healthcare management features, PostgreSQL query-performance tracking, execution-plan analysis, and a developer dashboard for optimization recommendations.
 
