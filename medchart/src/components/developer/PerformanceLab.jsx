@@ -9,6 +9,7 @@ const descriptions = {
   transactions: "Demonstrates rollback, constraints and durability using dedicated experiment tables.",
   threads: "Compares deterministic CPU work in the main thread and real worker_threads.",
   processes: "Spawns separate Node.js processes and measures sequential versus concurrent execution.",
+  concurrency: "Runs bounded asynchronous tasks serially and concurrently, then reports overlap and elapsed time.",
   scheduling: "Calculates waiting, turnaround and response metrics for four scheduling policies.",
   sync: "Creates a controlled lost-update workload, then protects the critical section with a promise mutex.",
   paging: "Reads a bounded synthetic file in page-sized steps and reports supported access measurements.",
@@ -18,7 +19,7 @@ const descriptions = {
 
 const groups = [
   { id: "dbms", label: "DBMS experiments", hint: "PostgreSQL execution and transactions", modules: ["sql", "deadlock", "transactions"] },
-  { id: "os", label: "OS experiments", hint: "Processes, memory, scheduling and synchronisation", modules: ["threads", "processes", "scheduling", "sync", "paging", "monitoring"] },
+  { id: "os", label: "OS experiments", hint: "Processes, memory, scheduling and synchronisation", modules: ["threads", "processes", "concurrency", "scheduling", "sync", "paging", "monitoring"] },
   { id: "ai", label: "AI evaluation", hint: "Measured query-latency prediction", modules: ["ml"] },
 ];
 

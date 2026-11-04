@@ -20,6 +20,7 @@ The developer-only **Performance & OS Lab** is an executable extension of MedCha
 | ACID | Real rollback, `CHECK` constraint and committed-row visibility through a later pool query. |
 | Worker threads | Sequential/parallel CPU timings, configurable bounded worker count and actual `worker_threads` IDs. |
 | Processes | Child process PIDs and start/end timestamps, sequential/concurrent timings. |
+| Concurrency test | Bounded asynchronous tasks, serial/concurrent elapsed time, maximum overlap and an explicit concurrency observation. |
 | Scheduling | FCFS, SJF, priority and bounded Round Robin schedule metrics; explicitly a simulator, not a host scheduler change. |
 | Synchronisation | Controlled lost-update workload followed by a promise-mutex critical section. |
 | Virtual memory | Bounded synthetic file and page-sized sequential/random access timings. Portable Node APIs report page-fault counters as unavailable rather than guessing. |

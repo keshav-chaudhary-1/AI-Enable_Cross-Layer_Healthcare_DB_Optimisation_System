@@ -94,6 +94,44 @@ async function runThreads(config) { const iterations = safeLimit(config.iteratio
 function childTask() { return new Promise((resolve, reject) => { const child = spawn(process.execPath, ["-e", "const started=Date.now(); let x=1; for(let i=0;i<900000;i++) x=(x*1664525+1013904223)%4294967296; process.stdout.write(JSON.stringify({pid:process.pid,startedAt:new Date(started).toISOString(),endedAt:new Date().toISOString()}))"], { stdio: ["ignore", "pipe", "pipe"] }); let out=""; child.stdout.on("data", (chunk) => { out += chunk; }); child.once("error", reject); child.once("close", (code) => code === 0 ? resolve(JSON.parse(out)) : reject(new Error("child process failed"))); }); }
 async function runProcesses() { const start=performance.now(); const sequential=[await childTask(), await childTask()]; const sequentialMs=Number((performance.now()-start).toFixed(2)); const concurrentStart=performance.now(); const concurrent=await Promise.all([childTask(), childTask()]); const concurrentMs=Number((performance.now()-concurrentStart).toFixed(2)); return { module:"processes", title:"Processes and scheduling", status:"completed", sequentialMs, concurrentMs, processes:[...sequential,...concurrent], explanation:"These are separate OS processes. The scheduling algorithms below are simulations and do not change the host scheduler." }; }
 
+function runConcurrency(config = {}) {
+  const tasks = safeLimit(config.tasks, 6, 12);
+  const workMs = safeLimit(config.workMs, 40, 250);
+  const task = (id, state) => new Promise((resolve) => {
+    state.active += 1;
+    state.maxActive = Math.max(state.maxActive, state.active);
+    const startedAt = performance.now();
+    setTimeout(() => {
+      state.active -= 1;
+      resolve({ id, elapsedMs: Number((performance.now() - startedAt).toFixed(2)) });
+    }, workMs);
+  });
+  const measure = async (concurrent) => {
+    const state = { active: 0, maxActive: 0 };
+    const start = performance.now();
+    const jobs = Array.from({ length: tasks }, (_, index) => () => task(index + 1, state));
+    const results = concurrent
+      ? await Promise.all(jobs.map((job) => job()))
+      : await jobs.reduce((chain, job) => chain.then((items) => job().then((item) => [...items, item])), Promise.resolve([]));
+    return { elapsedMs: Number((performance.now() - start).toFixed(2)), maxActive: state.maxActive, results };
+  };
+  return measure(false).then(async (sequential) => {
+    const concurrent = await measure(true);
+    return {
+      module: "concurrency",
+      title: "Concurrency experiment",
+      status: "completed",
+      tasks,
+      workMs,
+      sequential,
+      concurrent,
+      overlapObserved: concurrent.maxActive > 1,
+      speedup: Number((sequential.elapsedMs / concurrent.elapsedMs).toFixed(2)),
+      explanation: "Bounded asynchronous tasks are run serially and together. Overlap demonstrates concurrency through interleaving; it does not claim that JavaScript executed these callbacks in parallel."
+    };
+  });
+}
+
 function scheduling(config={}) { const jobs = Array.isArray(config.jobs) && config.jobs.length ? config.jobs.map((j,i)=>({ id:String(j.id||`J${i+1}`), arrival:Number(j.arrival)||0, burst:Math.max(1,Number(j.burst)||1), priority:Number(j.priority)||1 })) : [{id:"J1",arrival:0,burst:7,priority:2},{id:"J2",arrival:2,burst:4,priority:1},{id:"J3",arrival:4,burst:1,priority:3}]; const calculate=(order)=>{ let time=0; const rows=order.map((job)=>{time=Math.max(time,job.arrival); const start=time; time+=job.burst; return {...job,start,completion:time,waiting:start-job.arrival,turnaround:time-job.arrival,response:start-job.arrival};}); return {order:rows.map(x=>x.id), rows, averages:Object.fromEntries(["waiting","turnaround","response"].map(k=>[k,Number((rows.reduce((s,x)=>s+x[k],0)/rows.length).toFixed(2))]))}; }; return {module:"scheduling",title:"Scheduling simulator",status:"completed",algorithms:{FCFS:calculate([...jobs].sort((a,b)=>a.arrival-b.arrival)),SJF:calculate([...jobs].sort((a,b)=>a.burst-b.burst)),Priority:calculate([...jobs].sort((a,b)=>a.priority-b.priority)),"Round Robin":calculate([...jobs].sort((a,b)=>a.arrival-b.arrival))},note:"Round Robin is represented with a bounded illustrative order; the simulator is not the host OS scheduler."}; }
 async function runRace() { let unsafe=0; for(let i=0;i<100;i+=1){let value=0; await Promise.all(Array.from({length:20},async()=>{const old=value; await new Promise(r=>setImmediate(r)); value=old+1;})); unsafe+=value;} let locked=0; let chain=Promise.resolve(); for(let i=0;i<20;i+=1) chain=chain.then(()=>{locked+=1;}); await chain; return {module:"sync",title:"Race condition and synchronisation",status:"completed",unsafeObserved:unsafe<2000,unsafeFinalAverage:unsafe/100,mutexFinal:locked,explanation:"The synthetic interleaving loses updates; serialising the critical section with a promise mutex preserves all increments."}; }
 async function runPaging(config={}) { const bytes=safeLimit(config.megabytes,16,64)*1024*1024; const file=path.join(os.tmpdir(),`medchart-paging-${process.pid}-${Date.now()}.bin`); const buffer=Buffer.alloc(1024*1024,7); const fd=await fs.open(file,"w"); for(let i=0;i<bytes/buffer.length;i+=1) await fd.write(buffer); await fd.close(); const data=await fs.readFile(file); const page=4096; const access=(random)=>{const start=performance.now(); let checksum=0; for(let i=0;i<data.length;i+=page){const index=random ? ((i*1103515245) % data.length) : i; checksum+=data[index];} return {elapsedMs:Number((performance.now()-start).toFixed(2)),checksum};}; const sequential=access(false); const random=access(true); await fs.unlink(file).catch(()=>{}); return {module:"paging",title:"Memory mapping and virtual memory",status:"completed",datasetBytes:bytes,sequential,random,pageBytes:page,minorMajorPageFaults:{status:"Unavailable",explanation:"Portable Node.js APIs do not expose file-backed page-fault counters."},explanation:"This bounded file-backed access experiment measures access patterns; it does not claim control over OS page replacement."}; }
@@ -106,7 +144,7 @@ export async function executeLab(module, config, pool) {
   started.set(id,{module,status:"running",startedAt:now()});
   try {
     let result;
-    if(module==="sql") result=await runQueryLab(pool,config); else if(module==="deadlock") result=await runDeadlock(pool); else if(module==="transactions") result=await runTransactions(pool); else if(module==="threads") result=await runThreads(config); else if(module==="processes") result=await runProcesses(); else if(module==="scheduling") result=scheduling(config); else if(module==="sync") result=await runRace(); else if(module==="paging") result=await runPaging(config); else if(module==="monitoring") result=runMonitor(); else if(module==="ml") result=runMl(pool); else throw Object.assign(new Error("Unknown lab module"),{status:400});
+    if(module==="sql") result=await runQueryLab(pool,config); else if(module==="deadlock") result=await runDeadlock(pool); else if(module==="transactions") result=await runTransactions(pool); else if(module==="threads") result=await runThreads(config); else if(module==="processes") result=await runProcesses(); else if(module==="concurrency") result=await runConcurrency(config); else if(module==="scheduling") result=scheduling(config); else if(module==="sync") result=await runRace(); else if(module==="paging") result=await runPaging(config); else if(module==="monitoring") result=runMonitor(); else if(module==="ml") result=runMl(pool); else throw Object.assign(new Error("Unknown lab module"),{status:400});
     result.id=id; result.startedAt=started.get(id).startedAt; result.finishedAt=now(); remember(result); started.delete(id); return result;
   } catch(error) {
     const result={id,module,status:"error",startedAt:started.get(id)?.startedAt,finishedAt:now(),error:error.code||error.message}; remember(result); started.delete(id); throw Object.assign(error,{labResult:result});

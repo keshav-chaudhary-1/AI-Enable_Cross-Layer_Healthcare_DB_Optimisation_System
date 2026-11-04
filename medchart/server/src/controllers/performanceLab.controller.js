@@ -7,6 +7,7 @@ const modules = [
   { id: "transactions", label: "ACID & recovery", concept: "Atomicity, consistency, isolation and durability" },
   { id: "threads", label: "Worker threads", concept: "Real CPU-bound multithreading" },
   { id: "processes", label: "Processes", concept: "Separate OS processes and measured concurrency" },
+  { id: "concurrency", label: "Concurrency test", concept: "Overlapping asynchronous tasks versus serial execution" },
   { id: "scheduling", label: "Scheduling simulator", concept: "FCFS, SJF, priority and Round Robin metrics" },
   { id: "sync", label: "Synchronisation", concept: "Race condition and critical-section protection" },
   { id: "paging", label: "Virtual memory", concept: "Bounded file-backed page access" },
