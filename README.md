@@ -44,7 +44,7 @@ The system follows a layered architecture:
 The current query-analysis workflow focuses on:
 1. Recording query execution time and the number of rows returned.
 2. Observing PostgreSQL EXPLAIN JSON plans to examine estimated costs, row estimates, and scan methods.
-3. Identifying potential performance bottlenecks.
+3. Detecting possible performance bottlenecks.
 4. Recommending candidate query rewrites or indexes.
 5. Allowing developers to review recommendations before applying changes.
 
