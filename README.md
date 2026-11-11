@@ -36,7 +36,7 @@ The system follows a layered architecture:
 
 * Application Layer: Provides the MedChart interface and healthcare functionality.
 * Backend Layer: Handles APIs, authentication, and application logic through Node.js and Express.
-* Database Layer: Stores healthcare data in PostgreSQL and supports query execution analysis.
+* Database Layer: Manages healthcare data in PostgreSQL and enables query performance analysis.
 * Query Analysis Layer: Examines execution plans and performance measurements to identify potential bottlenecks.
 * Planned AI and OS Monitoring Layer: Will combine query, database, and operating-system information to support machine-learning-based performance prediction.
 
